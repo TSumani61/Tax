@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkiye Tax Exemption Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-balance-scale" style="margin-right: 8px;"></i>F&Y Global Group
+        </div>
+        <div class="lang-selector">
+            <button class="lang-btn" id="current-lang">
+                <i class="fas fa-globe"></i> <span>English</span>
+            </button>
+            <div class="lang-dropdown">
+                <button class="lang-option" data-lang="tr">Türkçe</button>
+                <button class="lang-option" data-lang="en">English</button>
+                <button class="lang-option" data-lang="de">Deutsch</button>
+                <button class="lang-option" data-lang="fr">Français</button>
+                <button class="lang-option" data-lang="es">Español</button>
+                <button class="lang-option" data-lang="ar">العربية</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div id="particles"></div>
+        
+        <div class="container">
+            <div class="content-wrapper">
+                <h1 id="hero-title">20 Years Tax <span class="highlight">Exemption Opportunity</span></h1>
+                <p id="hero-desc">Pay zero tax in Turkey for 20 years on your foreign-sourced income. As <strong>F&Y Global Group</strong>, we provide <strong>Expert Legal and Financial Consulting</strong> to ensure your wealth is protected and your transition is legally flawless.</p>
+                
+                <div class="badges">
+                    <div class="badge">
+                        <i class="fas fa-gavel"></i> <span id="badge-1">Expert Legal Counsel</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-chart-line"></i> <span id="badge-2">Financial Advisory</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-user-secret"></i> <span id="badge-3">100% Confidentiality</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <div class="form-header">
+                    <h2 id="form-title">Apply Now</h2>
+                    <p id="form-desc">Let our Legal & Financial experts contact you.</p>
+                </div>
+
+                <form id="lead-form">
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="input-name" class="form-input" placeholder="Full Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="input-email" class="form-input" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="input-phone" class="form-input" placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="input-country" class="form-input" placeholder="Country of Residence" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="btn-submit">
+                        <span id="btn-text">Get Information</span> <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
