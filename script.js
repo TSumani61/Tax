@@ -27,6 +27,10 @@ const translations = {
         placeholderPhone: 'Telefon Numaranız',
         placeholderCountry: 'Yaşadığınız Ülke',
         btnSubmit: 'Bilgi Alın',
+        successMsg: 'Başarıyla Gönderildi!',
+        errorMsg: 'Hata Oluştu!',
+        waitMsg: 'Lütfen tekrar göndermeden önce 1 dakika bekleyin.',
+        sendingMsg: 'Gönderiliyor...',
         langName: 'Türkçe',
         dir: 'ltr'
     },
@@ -43,6 +47,10 @@ const translations = {
         placeholderPhone: 'Phone Number',
         placeholderCountry: 'Country of Residence',
         btnSubmit: 'Get Information',
+        successMsg: 'Successfully Sent!',
+        errorMsg: 'An Error Occurred!',
+        waitMsg: 'Please wait 1 minute before sending again.',
+        sendingMsg: 'Sending...',
         langName: 'English',
         dir: 'ltr'
     },
@@ -59,6 +67,10 @@ const translations = {
         placeholderPhone: 'Telefonnummer',
         placeholderCountry: 'Wohnsitzland',
         btnSubmit: 'Informationen Erhalten',
+        successMsg: 'Erfolgreich Gesendet!',
+        errorMsg: 'Ein Fehler ist aufgetreten!',
+        waitMsg: 'Bitte warten Sie 1 Minute vor dem erneuten Senden.',
+        sendingMsg: 'Wird gesendet...',
         langName: 'Deutsch',
         dir: 'ltr'
     },
@@ -75,6 +87,10 @@ const translations = {
         placeholderPhone: 'Numéro de Téléphone',
         placeholderCountry: 'Pays de Résidence',
         btnSubmit: 'Obtenir des Infos',
+        successMsg: 'Envoyé avec Succès!',
+        errorMsg: 'Une Erreur est Survenue!',
+        waitMsg: 'Veuillez patienter 1 minute avant de renvoyer.',
+        sendingMsg: 'Envoi en cours...',
         langName: 'Français',
         dir: 'ltr'
     },
@@ -91,6 +107,10 @@ const translations = {
         placeholderPhone: 'Número de Teléfono',
         placeholderCountry: 'País de Residencia',
         btnSubmit: 'Obtener Información',
+        successMsg: '¡Enviado con Éxito!',
+        errorMsg: '¡Ocurrió un Error!',
+        waitMsg: 'Por favor, espere 1 minuto antes de enviar de nuevo.',
+        sendingMsg: 'Enviando...',
         langName: 'Español',
         dir: 'ltr'
     },
@@ -107,6 +127,10 @@ const translations = {
         placeholderPhone: 'رقم الهاتف',
         placeholderCountry: 'بلد الإقامة',
         btnSubmit: 'احصل على معلومات',
+        successMsg: 'تم الإرسال بنجاح!',
+        errorMsg: 'حدث خطأ!',
+        waitMsg: 'يرجى الانتظار دقيقة واحدة قبل الإرسال مرة أخرى.',
+        sendingMsg: 'جاري الإرسال...',
         langName: 'العربية',
         dir: 'rtl'
     }
@@ -137,12 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Spam koruması: 60 saniyede bir gönderim sınırı
         const now = Date.now();
         if (now - lastSubmitTime < 60000) {
-            alert(currentLang === 'tr' ? 'Lütfen tekrar göndermeden önce 1 dakika bekleyin.' : 'Please wait 1 minute before sending again.');
+            alert(translations[currentLang].waitMsg);
             return;
         }
 
         const btnText = document.getElementById('btn-text');
-        btnText.innerText = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
+        btnText.innerText = translations[currentLang].sendingMsg;
         
         // Form verilerini al
         const name = document.getElementById('input-name').value;
@@ -164,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lastSubmitTime = Date.now();
             localStorage.setItem('lastSubmitTime', lastSubmitTime);
 
-            btnText.innerText = currentLang === 'tr' ? 'Başarıyla Gönderildi!' : 'Successfully Sent!';
+            btnText.innerText = translations[currentLang].successMsg;
             btnText.parentElement.style.background = 'linear-gradient(135deg, #28a745 0%, #218838 100%)';
             e.target.reset();
             
@@ -174,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 4000);
         } catch (error) {
             console.error("Firebase'e kaydederken hata oluştu: ", error);
-            btnText.innerText = currentLang === 'tr' ? 'Hata Oluştu!' : 'An Error Occurred!';
+            btnText.innerText = translations[currentLang].errorMsg;
             btnText.parentElement.style.background = 'linear-gradient(135deg, #dc3545 0%, #c82333 100%)';
             setTimeout(() => {
                 btnText.innerText = translations[currentLang].btnSubmit;
